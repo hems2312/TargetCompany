@@ -1,0 +1,23 @@
+<ion-view title="Companies" >
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input id="searchKey" type="search" placeholder="Search - Company Name & Dept" ng-model="searchKey.companyName" autocorrect="off" >
+            <button class="button button-clear" ng-click="clearSearch()">X</button>
+        </label>
+        
+    </div>
+    
+    <ion-content class="has-header has-subheader">
+        <ion-list>
+            <ion-item ng-repeat="company in companies | filter:searchKey.companyName | filter:searchKey.companyDept" type="item-text-wrap" class="item-avatar" href="#/companies/{{company.companyID}}">
+                <p>{{company.comapnyName}}</p>
+                <p>{{company.companyDepartments}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>
